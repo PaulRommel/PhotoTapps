@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,6 +44,7 @@
                                 </collectionViewCellContentView>
                                 <connections>
                                     <outlet property="starImageView" destination="Gz5-tn-djH" id="Fdy-JS-Knf"/>
+                                    <segue destination="SCx-EA-Rih" kind="presentation" identifier="pickPhotoSegue" id="4VN-Vl-W8d"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -56,6 +58,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFA-FQ-37d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="718.84057971014499" y="-11.383928571428571"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="ALf-Qp-0U5">
+            <objects>
+                <viewController id="SCx-EA-Rih" customClass="PhotoViewController" customModule="PhotoTapps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QxJ-KW-FjO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wzx-3c-2Ty">
+                                <rect key="frame" x="0.0" y="318" width="414" height="206"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="206" id="Peg-78-uri"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jxk-Nk-4a6">
+                                <rect key="frame" x="144.5" y="750" width="125" height="22"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <state key="normal" title=" Tap to Share" image="square.and.arrow.up" catalog="system">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareAction:" destination="SCx-EA-Rih" eventType="touchUpInside" id="VSh-86-XOK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cet-4V-taW"/>
+                        <color key="backgroundColor" red="0.13725490196078433" green="0.12156862745098039" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="cet-4V-taW" firstAttribute="trailing" secondItem="Wzx-3c-2Ty" secondAttribute="trailing" id="Ec0-PU-un5"/>
+                            <constraint firstItem="Wzx-3c-2Ty" firstAttribute="leading" secondItem="cet-4V-taW" secondAttribute="leading" id="IvP-HD-4ms"/>
+                            <constraint firstItem="Wzx-3c-2Ty" firstAttribute="centerY" secondItem="QxJ-KW-FjO" secondAttribute="centerY" id="Jf5-3V-MBv"/>
+                            <constraint firstItem="Jxk-Nk-4a6" firstAttribute="centerX" secondItem="QxJ-KW-FjO" secondAttribute="centerX" id="h92-Ya-YaM"/>
+                            <constraint firstItem="cet-4V-taW" firstAttribute="bottom" secondItem="Jxk-Nk-4a6" secondAttribute="bottom" constant="36" id="hWJ-WC-ird"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="Wzx-3c-2Ty" id="Fu4-D5-bET"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bw1-Dh-pvg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1560.8695652173915" y="-11.383928571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tLw-Fm-1hg">
@@ -78,6 +123,7 @@
     </scenes>
     <resources>
         <image name="Metallica" width="1800" height="1800"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
